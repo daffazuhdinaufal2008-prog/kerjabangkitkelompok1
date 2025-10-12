@@ -1,0 +1,754 @@
+/* =====================================
+   Global Styles & Variables
+===================================== */
+/* Add this to your style.css file */
+:root {
+    --primary-color: #2c3e50; /* Dark Blue/Grey for header, headings */
+    --accent-color: #e67e22; /* Orange for hover, highlights */
+    --secondary-accent-color: #3498db; /* Blue for buttons, icons */
+    --success-color: #28a745; /* Green for success, search button */
+    --text-color: #333;
+    --light-text-color: #555;
+    --background-light: #f4f7f6;
+    --card-background: #ffffff;
+    --border-color: #ddd;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.08);
+    --shadow-strong: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+/* Ensure container works as expected */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Base link styles */
+a {
+    color: var(--secondary-accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Section headings and descriptions */
+.section {
+    background-color: var(--card-background);
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-light);
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 15px; /* Space for the pseudo-element line */
+}
+
+.section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-description {
+    text-align: center;
+    max-width: 700px;
+    margin: -15px auto 40px auto; /* Adjust margin to pull it closer to H2 */
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+}
+
+/* =====================================
+   Header
+===================================== */
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px var(--shadow-strong);
+    position: sticky; /* Keeps header visible on scroll */
+    top: 0;
+    z-index: 1000; /* Ensures header is above other content */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.logo:hover {
+    color: var(--accent-color);
+}
+
+.logo img {
+    max-height: 100px;
+    width: auto;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+header .logo:hover img {
+    transform: scale(1.05); /* Sedikit membesar saat dihover */
+}
+
+/* Navigation */
+nav {
+    flex-grow: 1; /* Allows nav to take up available space */
+    text-align: right; /* Align nav items to the right on desktop */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right within the nav */
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 5px 0; /* Provides better clickable/hover area */
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* 'active' class can be added by JS for current page */
+    color: var(--accent-color);
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    order: 2; /* Position after logo, before nav on mobile */
+}
+
+@media (max-width: 768px) {
+    header .logo img {
+        height: 40px; /* Ukuran logo lebih kecil di mobile */
+    }
+    .logo {
+         /* Pastikan img tetap terpusat di mobile */
+        text-align: center;
+    }
+}
+
+/* =====================================
+   Hero Section
+===================================== */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('image/mencari_pekerjaan.jpeg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect */
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px; /* Ensure a decent height */
+    box-shadow: 0 4px 15px var(--shadow-strong);
+}
+
+.hero h1 {
+    font-size: 3.8rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.hero-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 50px; /* Pill shape */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    display: inline-block; /* Essential for padding/margin to work */
+}
+
+.hero-button:hover {
+    background-color: #d86915; /* Slightly darker orange */
+    transform: translateY(-3px);
+}
+
+/* =====================================
+   Cards & Grid Layouts
+===================================== */
+/* General card styles */
+.card {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 8px var(--shadow-medium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures button is at bottom */
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 20px var(--shadow-light);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    flex-grow: 1; /* Allow paragraph to take available space */
+}
+
+.card .icon {
+    font-size: 3.5rem;
+    color: var(--secondary-accent-color); /* Default icon color */
+    margin-bottom: 20px;
+}
+
+.card a.button {
+    display: inline-block; /* Essential for padding/margin to work */
+    background-color: var(--secondary-accent-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center; /* Center button in card */
+}
+
+.card a.button:hover {
+    background-color: #2980b9; /* Darker blue */
+    transform: translateY(-2px);
+}
+
+/* Specific Card Styles (for coloring icons) */
+.skill-card .icon {
+    color: #f1c40f; /* Yellow for skills */
+}
+.problem-card .icon {
+    color: #e74c3c; /* Red for problems */
+}
+
+/* Grid Layouts */
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+}
+
+.grid-3-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+
+/* =====================================
+   Forms
+===================================== */
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-medium);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+button[type="submit"], .search-button {
+    background-color: var(--success-color);
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block; /* Make button full width */
+    width: 100%;
+    margin-top: 25px;
+}
+
+button[type="submit"]:hover, .search-button:hover {
+    background-color: #218838; /* Darker green */
+    transform: translateY(-2px);
+}
+
+/* =====================================
+   Job Finder Page Specifics
+===================================== */
+.job-platform-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-medium);
+    transition: transform 0.3s ease;
+}
+
+.job-platform-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 20px var(--shadow-light);
+}
+
+.job-platform-card img {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+    filter: grayscale(10%); /* Subtle effect */
+    transition: filter 0.3s ease;
+}
+.job-platform-card:hover img {
+    filter: grayscale(0%);
+}
+
+.job-platform-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+.job-platform-card p {
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+    text-align: center;
+    flex-grow: 1; /* Occupy space */
+}
+
+.job-platform-card a.button {
+    background-color: var(--secondary-accent-color);
+}
+
+.job-platform-card a.button:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+.job-tips ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    margin-top: 30px;
+}
+
+.job-tips li {
+    background-color: var(--background-light);
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--accent-color);
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+.job-tips li strong {
+    color: var(--primary-color);
+}
+
+
+/* =====================================
+   About Us Page Specifics
+===================================== */
+.vision-mission-content {
+    padding: 20px 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.vision-mission-content h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--secondary-accent-color);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+.vision-mission-content p,
+.vision-mission-content ul {
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    margin-bottom: 15px;
+}
+.vision-mission-content ul {
+    list-style: disc;
+    padding-left: 30px;
+}
+.vision-mission-content ul li {
+    margin-bottom: 8px;
+}
+
+
+.team-member-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 8px var(--shadow-medium);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.team-member-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 20px var(--shadow-light);
+}
+
+.team-member-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--secondary-accent-color);
+    box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.2); /* Outer glow */
+}
+
+.team-member-card h3 {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+.team-member-card p {
+    margin-bottom: 8px;
+    color: var(--light-text-color);
+    font-size: 1rem;
+}
+
+.team-member-card a {
+    color: var(--secondary-accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.team-member-card a:hover {
+    color: var(--accent-color);
+}
+
+.owner-contact {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #e8f4f8; /* Light blue background */
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-accent-color);
+    box-shadow: 0 2px 8px var(--shadow-medium);
+}
+.owner-contact p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+.owner-contact a {
+    font-weight: bold;
+    color: var(--secondary-accent-color);
+}
+
+
+/* =====================================
+   Feedback Page Specifics
+===================================== */
+.contact-info {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    background-color: #f0fdf4; /* Light green background */
+    border-radius: 8px;
+    border-left: 5px solid var(--success-color);
+    box-shadow: 0 2px 8px var(--shadow-medium);
+}
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+.contact-info p i {
+    margin-right: 10px;
+    color: var(--success-color);
+}
+.contact-info a {
+    font-weight: bold;
+    color: var(--success-color);
+}
+
+
+/* =====================================
+   Footer
+===================================== */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 50px;
+    font-size: 0.95rem;
+    box-shadow: 0 -2px 5px var(--shadow-strong);
+}
+
+
+/* =====================================
+   Responsive Adjustments
+===================================== */
+@media (max-width: 992px) {
+    .grid-2-cols {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+    .grid-3-cols {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    .section h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    /* Header */
+    header .container {
+        flex-direction: column; /* Stack logo, toggle, nav vertically */
+        align-items: center;
+    }
+    .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 1.6rem;
+    }
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    nav {
+        order: 3; /* Move nav below logo and toggle */
+        width: 100%;
+        text-align: center; /* Center nav items on mobile */
+    }
+    nav ul {
+        flex-direction: column;
+        justify-content: center; /* Center items for mobile */
+        width: 100%;
+        margin-top: 0;
+        display: none; /* Hidden by default, toggled by JS for mobile menu */
+    }
+    nav ul.active {
+        display: flex;
+    }
+    nav ul li {
+        margin: 10px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 5px;
+    }
+    nav ul li:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 5px;
+    }
+    nav ul li a {
+        padding: 10px 0; /* Increase touch area */
+        display: block;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 80px 15px;
+        min-height: 350px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+    .hero-button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+
+    /* Sections & Grids */
+    .section {
+        padding: 30px 20px;
+    }
+    .section h2 {
+        font-size: 2rem;
+    }
+    .section h2::after {
+        margin-top: 10px;
+    }
+    .section-description {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .grid-2-cols,
+    .grid-3-cols {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    /* Cards */
+    .card {
+        padding: 20px;
+    }
+    .card h3 {
+        font-size: 1.6rem;
+    }
+    .card p {
+        font-size: 1rem;
+    }
+    .card .icon {
+        font-size: 3rem;
+    }
+
+    /* Forms */
+    form {
+        padding: 20px;
+    }
+    button[type="submit"], .search-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Team Member Card */
+    .team-member-card img {
+        width: 100px;
+        height: 100px;
+    }
+    .team-member-card h3 {
+        font-size: 1.4rem;
+    }
+    .owner-contact p,
+    .contact-info p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 0.95rem;
+    }
+    .section h2 {
+        font-size: 1.8rem;
+    }
+    .card h3 {
+        font-size: 1.4rem;
+    }
+    .card .icon {
+        font-size: 2.5rem;
+    }
+    .job-tips li {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+    }
+    .vision-mission-content h3 {
+        font-size: 1.5rem;
+    }
+    .vision-mission-content p,
+    .vision-mission-content ul {
+        font-size: 1rem;
+    }
+}

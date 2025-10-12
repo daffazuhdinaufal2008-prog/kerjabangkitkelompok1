@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak & Saran - KerjaBangkit</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="image/logokerjabangkit.png" alt="KerjaBangkit Logo" height="100">
+            </a>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="job_finder.html">Pencari Kerja</a></li>
+                    <li><a href="about_us.html">Tentang Kami</a></li>
+                    <li><a href="feedback.html" class="active">Kontak & Saran</a></li> <!-- Added .active class -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('image/messages_light_colour_background.jpg');">
+            <h1>Bagikan Pemikiran Anda - Bantu KerjaBangkit Berkembang!</h1>
+            <p>Saran, kritik, dan testimoni Anda sangat berharga bagi kami untuk terus meningkatkan kualitas dan relevansi platform KerjaBangkit.</p>
+        </section>
+
+        <div class="container">
+            <section class="section">
+                <h2>Formulir Masukan</h2>
+                <p class="section-description">Kami sangat menghargai setiap masukan yang Anda berikan. Gunakan formulir di bawah ini untuk menyampaikan saran, kritik, atau pengalaman Anda menggunakan KerjaBangkit.</p>
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="userName">Nama Anda</label>
+                        <input type="text" id="userName" name="userName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Email Anda</label>
+                        <input type="email" id="userEmail" name="userEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userSuggestion">Saran/Masukan Anda</label>
+                        <textarea id="userSuggestion" name="userSuggestion" required></textarea>
+                    </div>
+                    <button type="submit">Kirim Feedback</button>
+                </form>
+                <p id="feedbackMessage" style="text-align: center; margin-top: 20px; color: green; font-weight: bold;"></p>
+            </section>
+
+            <section class="section contact-info">
+                <h2>Informasi Kontak Kami</h2>
+                <p>Jika Anda memiliki pertanyaan mendesak atau ingin berkolaborasi, jangan ragu untuk menghubungi kami:</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:kerja.bangkit.kel1@gmail.com">kerja.bangkit.kel1@gmail.com</a></p>
+                <p><i class="fas fa-phone-alt"></i> Telepon: <a href="tel:+62895331408935"></a>+62 895-3314-08935</a> (Hanya untuk pertanyaan bisnis)</p>
+                <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Gaga Utama No. 16, Jakarta, Indonesia</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> KerjaBangkit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
