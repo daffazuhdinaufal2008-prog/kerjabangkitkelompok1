@@ -229,6 +229,35 @@ nav ul li a.active { /* 'active' class can be added by JS for current page */
     transform: translateY(-3px);
 }
 
+/* Custom Hero Background for About Us page */
+.about_us_hero { /* Kita akan menambahkan class ini ke section hero di about_us.html */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), /* Overlay gelap */
+                url('image/anggotakelompokj.jpeg') no-repeat; /* Gambar baru Anda */
+    background-size: contain; /* Mengandung seluruh gambar di dalam kontainer */
+    background-position: center bottom; /* Fokus pada bagian bawah dan tengah gambar */
+    background-attachment: fixed; /* Jika Anda ingin efek parallax */
+    /* Pastikan properti lain yang sama dengan .hero utama juga diterapkan */
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
+    box-shadow: 0 4px 15px var(--shadow-strong);
+}
+
+/* Penyesuaian untuk tampilan mobile agar gambar tetap terlihat */
+@media (max-width: 768px) {
+    .about_us_hero {
+        background-size: contain; /* Tetap contain */
+        background-position: center bottom; /* Fokus di bawah */
+        min-height: 350px; /* Sesuaikan tinggi minimum jika perlu */
+    }
+}
 /* =====================================
    Cards & Grid Layouts
 ===================================== */
