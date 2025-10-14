@@ -401,6 +401,34 @@ button[type="submit"]:hover, .search-button:hover {
 /* =====================================
    Job Finder Page Specifics
 ===================================== */
+
+/* Custom Hero Background for Job Finder page */
+.job_finder_hero { /* Kita akan menambahkan class ini ke section hero di job_finder.html */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), /* Overlay gelap */
+                url('image/mencari_pekerjaan.jpeg') no-repeat center center/cover; /* Gambar baru Anda */
+    background-attachment: fixed; /* Jika Anda ingin efek parallax */
+    /* Pastikan properti lain yang sama dengan .hero utama juga diterapkan */
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
+    box-shadow: 0 4px 15px var(--shadow-strong);
+}
+
+/* Penyesuaian untuk tampilan mobile */
+@media (max-width: 768px) {
+    .job_finder_hero {
+        min-height: 350px; /* Sesuaikan tinggi minimum jika perlu */
+        /* background-size: cover; dan background-position: center center; sudah cukup baik di sini */
+    }
+}
+
 .job-platform-card {
     display: flex;
     flex-direction: column;
