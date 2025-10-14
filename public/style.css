@@ -405,7 +405,7 @@ button[type="submit"]:hover, .search-button:hover {
 /* Custom Hero Background for Job Finder page */
 .job_finder_hero { /* Kita akan menambahkan class ini ke section hero di job_finder.html */
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), /* Overlay gelap */
-                url('image/mencari_pekerjaan.jpeg') no-repeat center center/cover; /* Gambar baru Anda */
+                url('image/Background_Website.jpeg') no-repeat center center/cover; /* Gambar baru Anda */
     background-attachment: fixed; /* Jika Anda ingin efek parallax */
     /* Pastikan properti lain yang sama dengan .hero utama juga diterapkan */
     color: #fff;
