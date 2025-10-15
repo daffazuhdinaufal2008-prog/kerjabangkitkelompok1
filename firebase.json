@@ -5,6 +5,28 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/feedback",
+        "destination": "/feedback.html"
+      },
+      
+      {
+        "source": "/about_us",
+        "destination": "/about_us.html"
+      },
+      {
+        "source": "/job_finder",
+        "destination": "/job_finder.html"
+      },
+      
+      {
+        "source": "/",
+        "destination": "/index.html"
+      }
     ]
   }
 }
+
+
