@@ -36,7 +36,7 @@
             <section class="section">
                 <h2>Formulir Masukan</h2>
                 <p class="section-description">Kami sangat menghargai setiap masukan yang Anda berikan. Gunakan formulir di bawah ini untuk menyampaikan saran, kritik, atau pengalaman Anda menggunakan KerjaBangkit.</p>
-                <form id="feedbackForm">
+                <form action="https://formspree.io/f/xnngljov" method="POST">
                     <div class="form-group">
                         <label for="userName">Nama Anda</label>
                         <input type="text" id="userName" name="userName" required>
@@ -51,7 +51,8 @@
                     </div>
                     <button type="submit">Kirim Feedback</button>
                 </form>
-                <p id="feedbackMessage" style="text-align: center; margin-top: 20px; color: green; font-weight: bold;"></p>
+                <input type="hidden" name="_next" value="https://kerja-bangkit.web.app/feedback.html?status=success" />
+                <p id="feedbackMessage" style="text-align: center; margin-top: 20px; font-weight: bold;"></p>
             </section>
 
             <section class="section contact-info">

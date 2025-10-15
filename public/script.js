@@ -66,54 +66,48 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Handle feedback form submission (feedback.html)
+    // Logika ini akan membaca parameter URL yang ditambahkan oleh Formspree setelah redirect
     const feedbackForm = document.getElementById('feedbackForm');
-    if (feedbackForm) {
-        feedbackForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    const feedbackMessage = document.getElementById('feedbackMessage');
 
-            // In a real application, you would send this data to a server.
-            // For now, we'll just simulate a successful submission.
-            const userName = document.getElementById('userName').value;
-            const userEmail = document.getElementById('userEmail').value;
-            const userSuggestion = document.getElementById('userSuggestion').value;
+    if (feedbackMessage) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
 
-            console.log('Feedback Submitted:');
-            console.log('Name:', userName);
-            console.log('Email:', userEmail);
-            console.log('Suggestion:', userSuggestion);
-
-            const feedbackMessage = document.getElementById('feedbackMessage');
-            if (feedbackMessage) {
-                feedbackMessage.textContent = 'Terima kasih, ' + userName + '! Masukan Anda telah kami terima dan sangat berarti bagi kami.';
-                feedbackMessage.style.display = 'block';
-                feedbackForm.reset(); // Clear the form
-            }
-
-            // Optionally hide the message after a few seconds
-            setTimeout(() => {
-                if (feedbackMessage) {
-                    feedbackMessage.style.display = 'none';
-                }
-            }, 7000);
-        });
+        if (status === 'success') {
+            feedbackMessage.textContent = 'Terima kasih! Masukan Anda telah kami terima dan akan segera kami proses.';
+            feedbackMessage.style.color = 'var(--success-color)'; // Green for success
+            feedbackMessage.style.display = 'block';
+            feedbackForm.reset(); // Clear the form after successful submission
+        } else if (status === 'error') { // Formspree tidak langsung memberikan status=error, tapi jika Anda ingin menanganinya
+            feedbackMessage.textContent = 'Maaf, terjadi kesalahan saat mengirim masukan Anda. Silakan coba lagi nanti atau hubungi kami langsung.';
+            feedbackMessage.style.color = '#dc3545'; // Red for error
+            feedbackMessage.style.display = 'block';
+        }
+        
+        // Clear the URL parameters after displaying the message to avoid re-displaying on refresh
+        // Ini akan membersihkan "?status=success" dari URL
+        if (status) {
+            history.replaceState({}, document.title, window.location.pathname);
+        }
     }
-
+});
     // Example of a simple dynamic content loading (optional, not strictly in your HTML)
     // If you had a section where you wanted to load recent blog posts or jobs
-    // function loadRecentJobs() {
-    //     // Simulate fetching data
-    //     const jobs = [
-    //         { title: "Web Developer", company: "Tech Solutions", location: "Jakarta" },
-    //         { title: "Digital Marketing Specialist", company: "Creative Agency", location: "Remote" },
-    //         { title: "Accountant", company: "Finance Corp", location: "Bandung" }
-    //     ];
-    //     const jobListElement = document.getElementById('recent-jobs-list');
-    //     if (jobListElement) {
-    //         jobListElement.innerHTML = jobs.map(job => `
-    //             <li><strong>${job.title}</strong> at ${job.company} - ${job.location}</li>
-    //         `).join('');
-    //     }
-    // }
-    // loadRecentJobs(); // Call this function if you have a section for it
-});
+     function loadRecentJobs() {
+        // Simulate fetching data
+         const jobs = [
+             { title: "Web Developer", company: "Tech Solutions", location: "Jakarta" },
+             { title: "Digital Marketing Specialist", company: "Creative Agency", location: "Remote" },
+             { title: "Accountant", company: "Finance Corp", location: "Bandung" }
+         ];
+         const jobListElement = document.getElementById('recent-jobs-list');
+         if (jobListElement) {
+             jobListElement.innerHTML = jobs.map(job => `
+                 <li><strong>${job.title}</strong> at ${job.company} - ${job.location}</li>
+             `).join('');
+         }
+     }
+     loadRecentJobs(); // Call this function if you have a section for it
+
 
