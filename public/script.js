@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuToggle && navUl) {
         menuToggle.addEventListener('click', function() {
             navUl.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
         });
 
         // Optional: Close menu when a navigation link is clicked (useful for single-page apps or smooth scrolls)
@@ -26,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', function() {
                 if (navUl.classList.contains('active')) {
                     navUl.classList.remove('active');
+                    menuToggle.querySelector('i').classList.remove('fa-times');
+                    menuToggle.querySelector('i').classList.add('fa-bars');
                 }
             });
         });

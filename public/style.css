@@ -175,6 +175,51 @@ nav ul li a.active { /* 'active' class can be added by JS for current page */
     .logo {
          /* Pastikan img tetap terpusat di mobile */
         text-align: center;
+        align-self: flex-start;
+        margin-right: auto;
+    }
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu on mobile */
+        order: 2; /* Position after logo, before nav on mobile */
+        margin-left: auto;
+        padding: 5px 0;
+    }
+    
+    nav {
+        order: 3;
+        width: 100%;
+        text-align: center; /* Center nav items on mobile */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
+        opacity: 0;
+        background-color: var(--primary-color);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 8px 8px;
+
+    }
+    nav.active {
+        max-height: 300px; /* Adjust as needed */
+        opacity: 1;
+    }
+    nav ul {
+        flex-direction: column;
+        justify-content: center; /* Center items for mobile */
+        width: 100%;
+        margin-top: 0;
+        padding-bottom: 10px;
+        display: flex;
+    }
+    nav ul li a {
+        padding: 10px 0;
+        display: block;
+        font-size: 1.1rem;
     }
 }
 
