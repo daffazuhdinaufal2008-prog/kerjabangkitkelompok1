@@ -470,6 +470,14 @@ button[type="submit"]:hover, .search-button:hover {
 
 .job-platform-card a.button {
     background-color: var(--secondary-accent-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center;
+    font-weight: bold;
 }
 
 .job-platform-card a.button:hover {
