@@ -492,6 +492,7 @@ button[type="submit"]:hover, .search-button:hover {
     box-shadow: 0 2px 5px var(--shadow-light);
 }
 .job-tips li strong {
+    font-weight: bold;
     color: var(--primary-color);
 }
 
